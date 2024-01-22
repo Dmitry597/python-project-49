@@ -12,3 +12,7 @@ publish: # для отладки публикации
 
 package-install: # для установки пакета из операционной системы
 	python3 -m pip install --user dist/*.whl
+package-reinstall:
+	pip install --user --force-reinstall dist/*.whl
+make lint:
+	poetry run flake8 brain_games
