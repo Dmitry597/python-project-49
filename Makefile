@@ -3,6 +3,10 @@ install: # установить зависимости проекта
 
 brain-games: # запустить файл brain-games
 	poetry run brain-games
+brain-even:
+	poetry run brain-even
+brain-calc:
+	poetry run brain-calc
 
 build: # позволяет создать "собранную" версию проекта
 	poetry build
@@ -16,5 +20,4 @@ package-reinstall:
 	pip install --user --force-reinstall dist/*.whl
 make lint:
 	poetry run flake8 brain_games
-brain-even:
-	poetry run brain-even
+	
