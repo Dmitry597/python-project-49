@@ -55,8 +55,8 @@ def correct_answer(name_user: str, correct: str) -> bool:
     if answer == correct:
         return True
     else:
-        print(f"'{answer}' is wrong answer ;(. Correct answer was 'no'.\n"
-              f"Let's try again, {name_user}!")
+        print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct}'."
+              f"\nLet's try again, {name_user}!")
 
 
 # Функционал игры
