@@ -3,5 +3,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/480349d276f903635fa2/maintainability)](https://codeclimate.com/github/Dmitry597/python-project-49/maintainability)
 
 
-#https://asciinema.org/a/o4n9O6vFcXVN5G55GpyJyyKQX  --> пример игры "Проверка на чётность"
-#https://asciinema.org/a/XSf97Em6zi5qQGLGRRzemxwXy  --> пример игры "Калькулятор"
+#https://asciinema.org/a/QViqqEJfPhttxVcOFBoyMAlof  --> пример игры "Проверка на чётность"
+#https://asciinema.org/a/XCqTlna4KCcgaUMauxAn01kIt  --> пример игры "Калькулятор"
