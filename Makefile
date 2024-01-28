@@ -7,6 +7,8 @@ brain-even:
 	poetry run brain-even
 brain-calc:
 	poetry run brain-calc
+brain-gcd:
+	poetry run brain-gcd
 
 build: # позволяет создать "собранную" версию проекта
 	poetry build
@@ -20,4 +22,3 @@ package-reinstall:
 	pip install --user --force-reinstall dist/*.whl
 make lint:
 	poetry run flake8 brain_games
-	

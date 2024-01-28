@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-from random import randint
-from random import choice
+from random import randint, choice
 import prompt
 
 
 """"
 Описание игры: «Калькулятор»
-Суть игры в следующем: 
+Суть игры в следующем:
 
 - Пользователю показывается случайное математическое выражение,
 например, "35 + 16" которое нужно вычислить и записать правильный ответ.
@@ -15,7 +14,7 @@ import prompt
 
 - Если пользователь даст неверный ответ, игра будет завершена,
 и ему будет выведено сообщение:
-"'yes' is the wrong answer ;(. The correct answer was 'no'.
+"'145' is the wrong answer ;(. The correct answer was '175'.
 Let's try again, (имя пользователя)!"
 
 - Любой некорректный ввод также будет считаться ошибкой,
@@ -41,10 +40,12 @@ def welcome_user() -> str:  # Приветствие пользователя
     return name_user.capitalize()
 
 
-def question_calc() -> None:
+# Инструкция для пользователя
+def question_user() -> None:
     print('What is the result of the expression?')
 
 
+# Возвращает случайные два числа и правильный ответ
 def expression_check() -> tuple[str, str]:
     operation = choice(['+', '-', '*'])
     number = [randint(1, 25), randint(1, 25)]
@@ -57,6 +58,7 @@ def expression_check() -> tuple[str, str]:
         return string, str(number[0] * number[1])
 
 
+# Проверка корректного ответа пользователя
 def correct_answer(name_user: str, correct: str) -> bool:
     answer = input('Your answer: ')
     if answer == correct:
@@ -69,7 +71,7 @@ def correct_answer(name_user: str, correct: str) -> bool:
 # Функционал игры
 def main():
     name_user = welcome_user()
-    question_calc()
+    question_user()
     count_answer = 0
     while count_answer < 3:
         check_answer = expression_check()

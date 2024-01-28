@@ -6,7 +6,7 @@ import prompt
 """
 Описание игры "Проверка на чётность":
 
-Суть игры состоит в следующем: 
+Суть игры состоит в следующем:
 
 - Пользователю будет показано случайное число,
 и ему нужно будет определить, является ли это число чётным или нечётным.
@@ -41,16 +41,17 @@ def welcome_user() -> str:   # Приветствие пользователя
     return name_user.capitalize()
 
 
-# Возвращает число и проверяет на чётность
+# Инструкция для пользователя
+def question_user() -> None:
+    print('Answer "yes" if the number is even, otherwise answer "no".')
+
+
+# Возвращает случайное число и правильный ответ
 def parity_check() -> tuple[str, str]:
     number = randint(0, 100)
     if number % 2 == 0:
         return str(number), 'yes'
     return str(number), 'no'
-
-
-def question_even() -> None:
-    print('Answer "yes" if the number is even, otherwise answer "no".')
 
 
 # Проверка корректного ответа пользователя
@@ -66,7 +67,7 @@ def correct_answer(name_user: str, correct: str) -> bool:
 # Функционал игры
 def main():
     name_user = welcome_user()
-    question_even()
+    question_user()
     count_answer = 0
     while count_answer < 3:
         check_answer = parity_check()
