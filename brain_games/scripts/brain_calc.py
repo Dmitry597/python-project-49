@@ -6,7 +6,7 @@ import prompt
 
 """"
 Описание игры: «Калькулятор»
-Суть игры в следующем:
+Суть игры в следующем: 
 
 - Пользователю показывается случайное математическое выражение,
 например, "35 + 16" которое нужно вычислить и записать правильный ответ.
@@ -45,7 +45,7 @@ def question_calc() -> None:
     print('What is the result of the expression?')
 
 
-def _expression_check() -> tuple[str, str]:
+def expression_check() -> tuple[str, str]:
     operation = choice(['+', '-', '*'])
     number = [randint(1, 25), randint(1, 25)]
     string = f'{number[0]} {operation} {number[1]}'
@@ -72,9 +72,9 @@ def main():
     question_calc()
     count_answer = 0
     while count_answer < 3:
-        parity_check = _expression_check()
-        print(f'Question: {parity_check[0]}')
-        if not correct_answer(name_user, parity_check[1]):
+        check_answer = expression_check()
+        print(f'Question: {check_answer[0]}')
+        if not correct_answer(name_user, check_answer[1]):
             return
 
         print('Correct!')
