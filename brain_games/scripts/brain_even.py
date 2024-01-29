@@ -47,7 +47,7 @@ def question_user() -> None:
 
 
 # Возвращает случайное число и правильный ответ
-def parity_check() -> tuple[str, str]:
+def game_logic() -> tuple[str, str]:
     number = randint(0, 100)
     if number % 2 == 0:
         return str(number), 'yes'
@@ -55,13 +55,10 @@ def parity_check() -> tuple[str, str]:
 
 
 # Проверка корректного ответа пользователя
-def correct_answer(name_user: str, correct: str) -> bool:
-    answer = input('Your answer: ')
+def correct_answer(answer: str, correct: str) -> bool:
     if answer == correct:
         return True
-    else:
-        print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct}'."
-              f"\nLet's try again, {name_user}!")
+    return False
 
 
 # Функционал игры
@@ -70,9 +67,12 @@ def main():
     question_user()
     count_answer = 0
     while count_answer < 3:
-        check_answer = parity_check()
+        check_answer = game_logic()
         print(f'Question: {check_answer[0]}')
-        if not correct_answer(name_user, check_answer[1]):
+        answer = input('Your answer: ')
+        if not correct_answer(answer, check_answer[1]):
+            print(f"'{answer}' is wrong answer ;(. Correct answer was"
+                  f" '{check_answer[1]}'.\nLet's try again, {name_user}!")
             return
 
         print('Correct!')

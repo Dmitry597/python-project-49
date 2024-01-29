@@ -3,10 +3,13 @@ install: # установить зависимости проекта
 
 brain-games: # запустить файл brain-games
 	poetry run brain-games
+
 brain-even:
 	poetry run brain-even
+
 brain-calc:
 	poetry run brain-calc
+
 brain-gcd:
 	poetry run brain-gcd
 
@@ -18,7 +21,9 @@ publish: # для отладки публикации
 
 package-install: # для установки пакета из операционной системы
 	python3 -m pip install --user dist/*.whl
+
 package-reinstall:
 	pip install --user --force-reinstall dist/*.whl
-make lint:
+
+lint:
 	poetry run flake8 brain_games
