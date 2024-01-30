@@ -4,16 +4,18 @@ import prompt
 
 
 """
-Описание игры: «Наибольший общий делитель (НОД)»
-Суть игры в следующем:
+Описание игры «Простое ли число?»:
 
-- Пользователю показывается два случайных числа, например, 25 50.
+Суть игры состоит в следующем:
 
-- Пользователь должен вычислить и ввести наибольший общий делитель этих чисел.
+- Пользователю будет показано случайное число,
+и ему нужно будет определить, является ли это число простым или нет.
+Пользователю будет предложено ввести "yes", если число простое,
+или "no", если число непростое.
 
 - Если пользователь даст неверный ответ, игра будет завершена,
 и ему будет выведено сообщение:
-"'1' is the wrong answer ;(. The correct answer was '25'.
+"'yes' is the wrong answer ;(. The correct answer was 'no'.
 Let's try again, (имя пользователя)!"
 
 - Любой некорректный ввод также будет считаться ошибкой,
@@ -28,11 +30,11 @@ Let's try again, (имя пользователя)!"
 - После успешного завершения игры будет выведено сообщение
 "Congratulations, (имя пользователя)".
 
-Здесь будет следующая часть кода для реализации игры...
+- Здесь будет следующая часть кода для реализации игры...
 """
 
 
-def welcome_user() -> str:  # Приветствие пользователя
+def welcome_user() -> str:   # Приветствие пользователя
     print('Welcome to the Brain Games!')
     name_user = prompt.string('May I have your name? ')
     print(f'Hello, {name_user.capitalize()}!')
@@ -41,18 +43,19 @@ def welcome_user() -> str:  # Приветствие пользователя
 
 # Инструкция для пользователя
 def question_user() -> None:
-    print('Find the greatest common divisor of given numbers.')
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
 
 
-# Возвращает случайные два числа и правильный ответ
+# Возвращает случайное число и правильный ответ
 def game_logic() -> tuple[str, str]:
-    common_divisor = []
-    number = [randint(1, 100), randint(1, 100)]
-    string = f'{number[0]} {number[1]}'
-    for divider in range(1, min(number) + 1):
-        if number[0] % divider == 0 and number[1] % divider == 0:
-            common_divisor.append(divider)
-    return string, str(max(common_divisor))
+    number = randint(0, 100)
+    dividend = []
+    for i in range(1, number + 1):
+        if number % i == 0:
+            dividend.append(i)
+    if len(dividend) == 2:
+        return str(number), 'yes'
+    return str(number), 'no'
 
 
 # Проверка корректного ответа пользователя
