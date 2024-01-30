@@ -3,19 +3,25 @@ from random import randint
 import prompt
 
 
-"""
-Описание игры «Проверка на чётность»:
+""""
+Описание игры: «Арифметическая прогрессия»
+Суть игры в следующем:
 
-Суть игры состоит в следующем:
+- Пользователю показывается ряд чисел, который образует
+арифметическую прогрессию, заменив любое из чисел двумя точками.
 
-- Пользователю будет показано случайное число,
-и ему нужно будет определить, является ли это число чётным или нечётным.
-Пользователю будет предложено ввести "yes", если число чётное,
-или "no", если число нечётное.
+- Игрок должен определить это число.
+
+- Рекомендуемая длина прогрессии – 10 чисел.
+Длина может генерироваться случайным образом,
+но должна содержать не менее пяти чисел.
+
+- Позиция спрятанного элемента каждый раз изменяется —
+выбирается случайным образом.
 
 - Если пользователь даст неверный ответ, игра будет завершена,
 и ему будет выведено сообщение:
-"'yes' is the wrong answer ;(. The correct answer was 'no'.
+"'1' is the wrong answer ;(. The correct answer was '15'.
 Let's try again, (имя пользователя)!"
 
 - Любой некорректный ввод также будет считаться ошибкой,
@@ -30,11 +36,11 @@ Let's try again, (имя пользователя)!"
 - После успешного завершения игры будет выведено сообщение
 "Congratulations, (имя пользователя)".
 
-- Здесь будет следующая часть кода для реализации игры...
+Здесь будет следующая часть кода для реализации игры...
 """
 
 
-def welcome_user() -> str:   # Приветствие пользователя
+def welcome_user() -> str:  # Приветствие пользователя
     print('Welcome to the Brain Games!')
     name_user = prompt.string('May I have your name? ')
     print(f'Hello, {name_user.capitalize()}!')
@@ -43,15 +49,21 @@ def welcome_user() -> str:   # Приветствие пользователя
 
 # Инструкция для пользователя
 def question_user() -> None:
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+    print('What number is missing in the progression?')
 
 
-# Возвращает случайное число и правильный ответ
+# Возвращает случайные два числа и правильный ответ
 def game_logic() -> tuple[str, str]:
-    number = randint(0, 100)
-    if number % 2 == 0:
-        return str(number), 'yes'
-    return str(number), 'no'
+    progression = []
+    step_progres = randint(2, 5)
+    start_progres = randint(1, 25)
+    while len(progression) < 10:
+        progression.append(start_progres)
+        start_progres += step_progres
+    index_random = randint(0, 9)
+    secret_number = progression.pop(index_random)
+    progression.insert(index_random, '..')
+    return ' '.join(map(str, progression)), str(secret_number)
 
 
 # Проверка корректного ответа пользователя
