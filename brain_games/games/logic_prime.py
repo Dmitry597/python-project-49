@@ -43,10 +43,22 @@ def main():
 # Возвращает случайное число и правильный ответ
 def game_logic() -> tuple[str, str]:
     number = randint(0, 100)
-    dividend = []
-    for i in range(1, number + 1):
-        if number % i == 0:
-            dividend.append(i)
-    if len(dividend) == 2:
-        return str(number), 'yes'
-    return str(number), 'no'
+    if number < 2:
+        return str(number), 'no'
+    divider = 2
+    while divider <= number / 2:
+        if number % divider == 0:
+            return str(number), 'no'
+        divider += 1
+    return str(number), 'yes'
+
+
+# def game_logic() -> tuple[str, str]:  # Альтернативное решение
+#     number = randint(0, 100)
+#     dividend = []
+#     for i in range(1, number + 1):
+#         if number % i == 0:
+#             dividend.append(i)
+#     if len(dividend) == 2:
+#         return str(number), 'yes'
+#     return str(number), 'no'

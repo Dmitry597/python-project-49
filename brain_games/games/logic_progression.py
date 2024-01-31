@@ -48,13 +48,19 @@ def main():
 
 # Возвращает случайные два числа и правильный ответ
 def game_logic() -> tuple[str, str]:
-    progression = []
-    step_progres = randint(2, 5)
-    start_progres = randint(1, 25)
-    while len(progression) < 10:
-        progression.append(start_progres)
-        start_progres += step_progres
+    step = randint(2, 5)
+    start = randint(1, 25)
+    progression = get_progression(step, start)
     index_random = randint(0, 9)
-    secret_number = progression.pop(index_random)
-    progression.insert(index_random, '..')
+    secret_number = progression[index_random]
+    progression[index_random] = '..'
     return ' '.join(map(str, progression)), str(secret_number)
+
+
+# Генерирует арифметическую прогрессию
+def get_progression(step: int, start: int) -> list:
+    progression = []
+    while len(progression) < 10:
+        progression.append(start)
+        start += step
+    return progression

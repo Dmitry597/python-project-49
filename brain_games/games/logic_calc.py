@@ -42,11 +42,12 @@ def main():
 # Возвращает случайные два числа и правильный ответ
 def game_logic() -> tuple[str, str]:
     operation = choice(['+', '-', '*'])
-    number = [randint(1, 25), randint(1, 25)]
-    string = f'{number[0]} {operation} {number[1]}'
+    number1 = randint(1, 25)
+    number2 = randint(1, 25)
+    string = f'{number1} {operation} {number2}'
     if operation == '+':
-        return string, str(number[0] + number[1])
+        return string, str(number1 + number2)
     elif operation == '-':
-        return string, str(number[0] - number[1])
+        return string, str(number1 - number2)
     else:
-        return string, str(number[0] * number[1])
+        return string, str(number1 * number2)

@@ -41,9 +41,9 @@ def main():
 # Возвращает случайные два числа и правильный ответ
 def game_logic() -> tuple[str, str]:
     common_divisor = []
-    number = [randint(1, 100), randint(1, 100)]
-    string = f'{number[0]} {number[1]}'
-    for divider in range(1, min(number) + 1):
-        if number[0] % divider == 0 and number[1] % divider == 0:
+    number1 = randint(1, 100)
+    number2 = randint(1, 100)
+    for divider in range(1, min(number1, number2) + 1):
+        if number1 % divider == 0 and number2 % divider == 0:
             common_divisor.append(divider)
-    return string, str(max(common_divisor))
+    return f'{number1} {number2}', str(max(common_divisor))
