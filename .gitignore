@@ -7,3 +7,5 @@ dist/
 coverage.xml
 .pytest_cache/
 __pycache__/
+brain_games/__pycache__/
+brain_games/scripts/__pycache__
